@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-
+from datetime import datetime # 导入时间处理模块datetime
 from base import BaseFeedBook # 继承基类BaseFeedBook
-
+from lib.urlopener import URLOpener # 导入请求URL获取页面内容的模块
+from bs4 import BeautifulSoup # 导入BeautifulSoup处理模块
 
 def getBook():
     return SIS
@@ -12,7 +13,8 @@ class SIS(BaseFeedBook):
     description           = u''# 设定简介
     language              = 'zh-cn'# 设定语言
     feed_encoding         = "utf-8"
-    page_encoding         = "utf-8"
+    page_encoding         = "utf-8" # 设定待抓取页面的页面编码
+    fulltext_by_readability = False # 设定手动解析网页
     mastheadfile          = "mh_SIS.gif"# 设定标头图片
     coverfile             = "cv_SIS.jpg"# 设定封面图片
     oldest_article        = 1  # 设定文章的时间范围。小于等于365则单位为天，否则单位为秒，0为不限制
@@ -29,12 +31,27 @@ class SIS(BaseFeedBook):
             (u'乱伦人妻区', 'https://rsshub.app/sexinsex/110'),
             ]
             
-
      
     def fetcharticle(self, url, opener, decoder):
         #每个URL都增加一个后缀full=y，如果有分页则自动获取全部分页
         url += '?full=y'
         return BaseFeedBook.fetcharticle(self,url,opener,decoder)
  
-    
+    # 清理文章URL附带字符
+    def processtitle(self, title):
+        return title.replace(u' - Chinadaily.com.cn', '')
+
+    # 在文章内容被正式处理前做一些预处理
+    def preprocess(self, content):
+        # 将页面内容转换成BeatifulSoup对象
+        soup = BeautifulSoup(content, 'lxml')
+        # 调用处理内容分页的自定义函数SplitJointPagination()
+        content = self.SplitJointPagination(soup)
+        # 返回预处理完成的内容
+        return unicode(content)
+
+    # 此自定义函数负责请求传给它的链接并返回响应内容
+    def GetResponseContent(self, url):
+        opener = URLOpener(self.host, timeout=self.timeout, headers=self.extra_header)
+        return opener.open(url)        
         
