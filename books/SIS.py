@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-from datetime import datetime # 导入时间处理模块datetime
+
 from base import BaseFeedBook # 继承基类BaseFeedBook
-from lib.urlopener import URLOpener # 导入请求URL获取页面内容的模块
-from bs4 import BeautifulSoup # 导入BeautifulSoup处理模块
+
 
 def getBook():
     return SIS
@@ -31,24 +30,11 @@ class SIS(BaseFeedBook):
             ]
             
 
-    page_encoding = 'utf-8' # 设定待抓取页面的页面编码
-    fulltext_by_readability = False # 设定手动解析网页
-
-
-    # 设定内容页需要保留的标签
-    keep_only_tags = [
-        dict(name='span', class_='info_l'),
-        dict(name='div', id='Content'),
-    ]
-    
+     
     def fetcharticle(self, url, opener, decoder):
         #每个URL都增加一个后缀full=y，如果有分页则自动获取全部分页
         url += '?full=y'
         return BaseFeedBook.fetcharticle(self,url,opener,decoder)
-    
-        # 清理文章URL附带字符
-    def processtitle(self, title):
-        return title.replace(u' - Chinadaily.com.cn', '')
-        
+ 
     
         
