@@ -36,10 +36,7 @@ class Caoliu(BaseFeedBook):
         #每个URL都增加一个后缀full=y，如果有分页则自动获取全部分页
         url += '?full=y'
         return BaseFeedBook.fetcharticle(self,url,opener,decoder)
-    
-    # 清理文章URL附带字符
-    def processtitle(self, title):
-        return title.replace(u' - Chinadaily.com.cn', '')
+
 
     # 在文章内容被正式处理前做一些预处理
     def preprocess(self, content):
