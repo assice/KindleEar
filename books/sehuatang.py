@@ -7,7 +7,6 @@ def getBook():
 
 class sehuatang(BaseFeedBook):
     title                 = u'色花堂'# 设定标题:
-    title                 = u''
     description           = u''
     language              = 'zh-cn'
     feed_encoding         = "utf-8"

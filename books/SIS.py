@@ -7,8 +7,6 @@ def getBook():
 
 class SIS(BaseFeedBook):
     title                 = u'SexInSex'
-    title                 = u'SIS'# 设定标题:
-    title                 = u''
     description           = u''
     language              = 'zh-cn'
     feed_encoding         = "utf-8"

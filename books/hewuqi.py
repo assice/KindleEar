@@ -7,9 +7,7 @@ def getBook():
 
 class hewuqi(BaseFeedBook):
     title                 = u'2048核基地'
-    title                 = u'2048'# 设定标题:
-    title                 = u''
-    description           = u''
+    description           = u'2048'# 设定标题:
     language              = 'zh-cn'
     feed_encoding         = "utf-8"
     page_encoding         = "utf-8"
