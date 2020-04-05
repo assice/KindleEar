@@ -6,16 +6,16 @@ from lib.urlopener import URLOpener # 导入请求URL获取页面内容的模块
 from bs4 import BeautifulSoup # 导入BeautifulSoup处理模块
 
 def getBook():
-    return SIS
+    return Caoliu
 
-class SIS(BaseFeedBook):
-    title                 = u'SexinSex'# 设定标题
-    description           = u''# 设定简介
+class Caoliu(BaseFeedBook):
+    title                 = u'核武器'# 设定标题
+    description           = u'2048'# 设定简介
     language              = 'zh-cn'# 设定语言
     feed_encoding         = "utf-8"
     page_encoding         = "utf-8"
-    mastheadfile          =     # 设定标头图片
-    coverfile             =     # 设定封面图片
+    mastheadfile          = "mh_1024.gif"# 设定标头图片
+    coverfile             = "cv_1024.jpg"# 设定封面图片
     oldest_article        = 1  # 设定文章的时间范围。小于等于365则单位为天，否则单位为秒，0为不限制
     max_articles_per_feed = 40 # 设定每个主题下要最多可抓取的文章数量
     
@@ -23,11 +23,9 @@ class SIS(BaseFeedBook):
     # 指定要提取的包含文章列表的主题页面链接
     # 每个主题是包含主题名和主题页面链接的元组
     feeds = [
-            (u'新文发布区', 'https://rsshub.app/sexinsex/372'),
-            (u'武侠玄幻区', 'https://rsshub.app/sexinsex/96'),
-            (u'凌辱情感区', 'https://rsshub.app/sexinsex/279'),
-            (u'另类酷文区', 'https://rsshub.app/sexinsex/31'),
-            (u'乱伦人妻区', 'https://rsshub.app/sexinsex/110'),
+            (u'技術討論區', 'https://rsshub.app/t66y/7'),
+            (u'達蓋爾的旗幟', 'https://rsshub.app/t66y/16'),
+            (u'文學交流區', 'https://rsshub.app/t66y/20'),
             ]
             
 
