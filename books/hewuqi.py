@@ -41,11 +41,4 @@ class hewuqi(BaseFeedBook):
         return BaseFeedBook.fetcharticle(self,url,opener,decoder)
 
 
-    # 在文章内容被正式处理前做一些预处理
-    def preprocess(self, content):
-        # 将页面内容转换成BeatifulSoup对象
-        soup = BeautifulSoup(content, 'lxml')
-        # 调用处理内容分页的自定义函数SplitJointPagination()
-        content = self.SplitJointPagination(soup)
-        # 返回预处理完成的内容
-        return unicode(content)       
+      

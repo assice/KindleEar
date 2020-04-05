@@ -32,12 +32,3 @@ class sehuatang(BaseFeedBook):
         #每个URL都增加一个后缀full=y，如果有分页则自动获取全部分页
         url += '?full=y'
         return BaseFeedBook.fetcharticle(self,url,opener,decoder)
-    
-    # 在文章内容被正式处理前做一些预处理
-    def preprocess(self, content):
-        # 将页面内容转换成BeatifulSoup对象
-        soup = BeautifulSoup(content, 'lxml')
-        # 调用处理内容分页的自定义函数SplitJointPagination()
-        content = self.SplitJointPagination(soup)
-        # 返回预处理完成的内容
-        return unicode(content)     
