@@ -9,8 +9,8 @@ def getBook():
     return Caoliu
 
 class Caoliu(BaseFeedBook):
-    title                 = u'核武器'# 设定标题
-    description           = u'2048'# 设定简介
+    title                 = u'草榴社区'# 设定标题
+    description           = u'1024'# 设定简介
     language              = 'zh-cn'# 设定语言
     feed_encoding         = "utf-8"
     page_encoding         = "utf-8"

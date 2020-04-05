@@ -14,8 +14,8 @@ class SIS(BaseFeedBook):
     language              = 'zh-cn'# 设定语言
     feed_encoding         = "utf-8"
     page_encoding         = "utf-8"
-    mastheadfile          =     # 设定标头图片
-    coverfile             =     # 设定封面图片
+    mastheadfile          = "mh_SIS.gif"# 设定标头图片
+    coverfile             = "cv_SIS.jpg"# 设定封面图片
     oldest_article        = 1  # 设定文章的时间范围。小于等于365则单位为天，否则单位为秒，0为不限制
     max_articles_per_feed = 40 # 设定每个主题下要最多可抓取的文章数量
     
