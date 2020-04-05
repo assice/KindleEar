@@ -30,10 +30,12 @@ htmlTemplate = """
 <body><img src="%s"/></body>
 </html>""".strip()
 
-
+def getBook():
+    return caoliu
+    
 # base class of Book
-class BaseFeedBook:
-    title                 = '草榴社区'
+class caoliu:
+    title                 = '草榴社区1'
     __author__            = ''
     description           = '1024'
     max_articles_per_feed = 30
